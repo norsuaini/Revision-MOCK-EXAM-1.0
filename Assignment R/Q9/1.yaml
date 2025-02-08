@@ -8,5 +8,5 @@ spec:
     image: nginx:1.14.2
   - name: redis
     image: redis:latest
-   ports:
+    ports:
     - containerPort: 80
