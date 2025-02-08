@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kucc8
+  labels:
+    app: kucc8
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: kucc8
+  template:
+    metadata:
+      labels:
+        app: kucc8
+    spec:
+      containers:
+      - name: nginx
+        image: redis
+        ports:
+        - containerPort: 80
