@@ -1,14 +1,24 @@
-apiVersion: v1
-kind: Service
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: front-end-svc
+  name: front-end
+  labels:
+    app: nginx
 spec:
+  replicas: 1
   selector:
-    app:front-end-svc
-  ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 9376
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
 
 ---
 
