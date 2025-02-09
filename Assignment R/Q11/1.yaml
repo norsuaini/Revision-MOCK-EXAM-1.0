@@ -1,0 +1,1 @@
+kubectl drain <node-to-drain> --ignore-daemonsets --delete-emptydir-data
